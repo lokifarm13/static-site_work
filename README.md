@@ -21,7 +21,7 @@ css/style.css   js/script.js   img/ (logo, favicon)
 `main` — стабильная версия · `development` — разработка · `test` — эксперименты
 
 ## 🌐 GitHub Pages
-`https://[your-username].github.io/[repo-name]` — Settings → Pages → Branch `main`, папка `/ (root)`.
+`https://lokifarm13.github.io/static-site_work/` — Settings → Pages → Branch `main`, папка `/ (root)`.
 
 ## 📄 Лицензия
 MIT

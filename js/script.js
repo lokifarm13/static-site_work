@@ -8,7 +8,7 @@ const here=location.pathname.split('/').pop()||'index.html';
 $('#site-header').innerHTML=`<div class="wrap bar"><a class="logo" href="index.html"><img src="img/logo.svg" alt="">TurboGarage</a>
 <nav id="nav">${pages.map(([h,t])=>`<a href="${h}" class="${h===here?'active':''}">${t}</a>`).join('')}</nav>
 <div class="tools"><button class="ib" id="theme" aria-label="Сменить тему"></button><button class="ib" id="burger" aria-label="Меню">☰</button></div></div>`;
-$('#site-footer').innerHTML=`<div class="wrap"><span>© ${new Date().getFullYear()} TurboGarage — автосервис в Гдыне</span><span>Пн–Сб 8:00–20:00 · +48 123 456 789</span></div>`;
+$('#site-footer').innerHTML=`<div class="wrap"><span>© ${new Date().getFullYear()} TurboGarage — автосервис в Москве</span><span>Пн–Сб 8:00–20:00 · +7 (495) 123-45-67</span></div>`;
 
 // Тема (localStorage №1)
 const setTheme=t=>{document.documentElement.dataset.theme=t;LS.set('theme',t);$('#theme').textContent=t==='dark'?'☀️':'🌙'};
@@ -31,7 +31,7 @@ const toast=m=>{let t=$('.toast')||document.body.appendChild(Object.assign(docum
 
 // Калькулятор (запоминает выбор — localStorage №2)
 const calc=$('#calc');if(calc){const out=$('#total'),f=()=>{const v=Math.round(+$('#svc').value*+$('#cls').value+$$('.opt:checked',calc).reduce((a,o)=>a+ +o.value,0));
- out.textContent=v+' zł';out.classList.add('bump');setTimeout(()=>out.classList.remove('bump'),200);LS.set('calc',[$('#svc').selectedIndex,$('#cls').selectedIndex])};
+ out.textContent=v.toLocaleString('ru-RU')+' ₽';out.classList.add('bump');setTimeout(()=>out.classList.remove('bump'),200);LS.set('calc',[$('#svc').selectedIndex,$('#cls').selectedIndex])};
  const [a,b]=LS.get('calc',[0,0]);$('#svc').selectedIndex=a;$('#cls').selectedIndex=b;calc.oninput=f;f()}
 
 // Лайки (localStorage №3) и поиск по блогу
